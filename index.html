@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio of Pinapatruni Laxmi Narayana</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #1d1d1f;
+        background-color: #f5f5f7;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #d2d2d7;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        font-size: 1rem;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #0071e3;
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: background-color 0.3s ease;
+      }
+      nav ul li a:hover {
+        background-color: #0071e3;
+        color: #ffffff;
+        border-radius: 5px;
+      }
+      nav ul li a.active {
+        background-color: #0071e3;
+        color: #ffffff;
+        border-radius: 5px;
+      }
+      .section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: auto;
+        display: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        margin-bottom: 20px;
+      }
+      .section.active {
+        display: block;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #ffffff;
+        border-top: 1px solid #d2d2d7;
+        color: #6e6e73;
+      }
+      .fade {
+        animation: fadeIn 0.5s;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      ul li {
+        margin-bottom: 10px; /* Adds 10px of space below each list item */
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll("nav ul li a");
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            sections.forEach((section) =>
+              section.classList.remove("active", "fade")
+            );
+            navLinks.forEach((nav) => nav.classList.remove("active"));
+            const targetId = link.getAttribute("href").substring(1);
+            if (targetId === "home") {
+              sections.forEach((section) => {
+                section.classList.add("active", "fade");
+                section.querySelector("h2")?.classList.remove("hidden");
+              });
+            } else {
+              sections.forEach((section) =>
+                section.querySelector("h2")?.classList.add("hidden")
+              );
+              const targetSection = document.getElementById(targetId);
+              targetSection.classList.add("active", "fade");
+              targetSection.querySelector("h2")?.classList.remove("hidden");
+            }
+            link.classList.add("active");
+          });
+        });
+
+        // Show all sections by default for the home page
+        sections.forEach((section) => {
+          section.classList.add("active");
+          section.querySelector("h2")?.classList.remove("hidden");
+        });
+        navLinks[0].classList.add("active");
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#work">Work Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#cert">Certfications</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="contact" class="section">
+      <h2 class="hidden">Contact Information</h2>
+      <ul>
+        <li>
+          Email:
+          <a href="mailto:laxminarayanapinapatruni@gmail.com"
+            >laxminarayanapinapatruni@gmail.com</a
+          >
+        </li>
+        <li>Phone: +91 6302138515</li>
+        <li>Location: Vizag, India</li>
+        <li>
+          LinkedIn:
+          <a href="https://linkedin.com/in/pln6302" target="_blank"
+            >linkedin.com/in/pln6302</a
+          >
+        </li>
+        <li>
+          GitHub:
+          <a href="https://github.com/LNcloud" target="_blank"
+            >github.com/LNcloud</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section id="work" class="section">
+      <h2 class="hidden">Work Experience</h2>
+      <h3>Software Engineer at Candela Tech (July 2024 - Present)</h3>
+      <ul>
+        <li>Deployed a cloud controller application on the AWS platform</li>
+        <li>
+          Configured and managed AWS Route 53 to ensure secure and reliable DNS
+          management.
+        </li>
+        <li>
+          Analyzed logs of multiple Docker containers, to troubleshoot and
+          resolve issues effectively.
+        </li>
+        <li>
+          Automated testing of wireless access points using Python scripts and
+          Lanforge API.
+        </li>
+
+        <li>
+          Developed Python automation scripts leveraging Lanforge APIs to
+          evaluate the performance of wireless access points.
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="hidden">Projects</h2>
+      <h3>
+        Automated AWS Infrastructure Provisioning and CI/CD Pipeline
+        Implementation
+      </h3>
+      <ul>
+        <li>
+          Developed Jenkins pipelines integrated with GitHub webhooks for
+          streamlined deployments.
+        </li>
+        <li>
+          Automated environment setups using Ansible playbooks, ensuring
+          consistency across servers.
+        </li>
+      </ul>
+      <h3><a href="https://github.com/LNcloud/college-major-project">Architecting and Optimizing Cloud Web Infrastructures</a></h3>
+      <ul>
+        <li>
+          Designed and deployed one-tier, two-tier, and three-tier web
+          architectures on AWS.
+        </li>
+        <li>
+          Implemented load balancers and auto-scaling groups, validating
+          scalability through CPU utilization monitoring.
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="hidden">Skills</h2>
+      <ul>
+        <li>Cloud Platforms: AWS (EC2, S3, VPC, Route 53, IAM, RDS, EFS)</li>
+
+        <li>DevOps Tools: Terraform, Docker, Git/GitHub</li>
+        <li>Programming: Python, Shell Scripting</li>
+        <li>Networking: DNS Management, Network Troubleshooting</li>
+        <li>Operating Systems: Linux,MacOS</li>
+      </ul>
+    </section>
+
+    <section id="cert" class="section">
+      <h2 class="hidden">Certfications</h2>
+      <ul>
+        <li>
+          <a href="https://drive.google.com/file/d/1jnas8gB8W16Dqu9O0lmuU-3f5HyUVTAT/view?usp=sharing"
+            >AWS Certified Solutions Architect Associate</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Pinapatruni Laxmi Narayana</p>
+    </footer>
+  </body>
+</html>
